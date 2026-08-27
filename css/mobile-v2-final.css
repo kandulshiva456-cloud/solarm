@@ -1,0 +1,659 @@
+/*
+   MAITRA MOBILE V2 — final phone composition
+   Mobile-only presentation layer. Desktop is intentionally untouched.
+*/
+@media (max-width: 700px) {
+  :root {
+    --m2-side: 20px;
+    --m2-nav-h: 72px;
+    --m2-safe: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* ---------- compact mobile header ---------- */
+  .site-header {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .site-header .nav-toggle,
+  .site-header .nav-toggle:hover,
+  .site-header .nav-toggle:focus-visible {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    margin: 0 !important;
+    border: 1px solid rgba(255,255,255,.72) !important;
+    border-radius: 10px !important;
+    background: rgba(255,255,255,.92) !important;
+    color: #0b2947 !important;
+    box-shadow: 0 8px 24px rgba(7,31,55,.12) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+
+  .site-header .nav-toggle .icon {
+    width: 20px !important;
+    height: 20px !important;
+    color: #0b2947 !important;
+  }
+
+  /* ---------- hero ---------- */
+  .hero {
+    min-height: 100svh !important;
+    min-height: 100dvh !important;
+    height: 100svh !important;
+    height: 100dvh !important;
+  }
+
+  .hero-video,
+  .hero-poster {
+    object-position: 52% 48% !important;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(4,22,39,.22) 0%, rgba(4,22,39,.04) 34%, rgba(4,22,39,.24) 67%, rgba(4,22,39,.64) 100%),
+      linear-gradient(90deg, rgba(4,22,39,.20) 0%, rgba(4,22,39,.02) 70%, rgba(4,22,39,.10) 100%) !important;
+  }
+
+  .hero-content {
+    width: calc(100% - (2 * var(--m2-side))) !important;
+    max-width: 560px !important;
+    height: 100% !important;
+    padding: max(12px, env(safe-area-inset-top)) 0 calc(var(--m2-nav-h) + var(--m2-safe) + 18px) !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .hero-brand-row {
+    height: 74px !important;
+    min-height: 74px !important;
+    display: block !important;
+    position: relative !important;
+  }
+
+  .hero-brand {
+    position: absolute !important;
+    top: 4px !important;
+    left: 0 !important;
+    transform: none !important;
+    width: 94px !important;
+    min-width: 94px !important;
+    height: 62px !important;
+    justify-content: flex-start !important;
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,.12)) !important;
+  }
+
+  .hero-brand-logo {
+    width: 94px !important;
+    height: 62px !important;
+  }
+
+  .hero-eyebrow { display: none !important; }
+
+  .hero-copy {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: auto 0 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+
+  .hero-kicker {
+    margin: 0 0 14px !important;
+    color: #ffd000 !important;
+    font: 800 .60rem/1.2 var(--font-mono, ui-monospace, monospace) !important;
+    letter-spacing: .16em !important;
+    text-transform: uppercase !important;
+    text-align: left !important;
+  }
+
+  .hero-kicker::after {
+    content: "" !important;
+    display: block !important;
+    width: 34px !important;
+    height: 2px !important;
+    margin: 8px 0 0 !important;
+    border-radius: 99px !important;
+    background: #ffd000 !important;
+    box-shadow: none !important;
+  }
+
+  .hero-title {
+    width: 100% !important;
+    max-width: 10.5ch !important;
+    margin: 0 0 16px !important;
+    font-size: clamp(2.05rem, 10.2vw, 3.0rem) !important;
+    line-height: .94 !important;
+    letter-spacing: -.052em !important;
+    text-align: left !important;
+  }
+
+  .hero-title .mobile-break,
+  .hero-title .mobile-line-break { display: inline !important; }
+
+  .hero-support {
+    width: 100% !important;
+    max-width: 34ch !important;
+    margin: 0 !important;
+    font-size: clamp(.88rem, 3.55vw, 1rem) !important;
+    line-height: 1.48 !important;
+    color: rgba(255,255,255,.96) !important;
+    text-align: left !important;
+    text-shadow: 0 3px 14px rgba(0,0,0,.34) !important;
+  }
+
+  /* The original copy is retained in the HTML; prevent any legacy pseudo-copy
+     from duplicating it in the final composition. */
+  .hero-support::after { display: none !important; }
+
+  .hero-actions { display: none !important; }
+
+  .mobile-hero-actions {
+    width: 100% !important;
+    margin-top: 18px !important;
+    display: block !important;
+  }
+
+  .mobile-hero-actions .mobile-hero-primary {
+    display: flex !important;
+    width: 100% !important;
+    min-height: 50px !important;
+    padding: 0 16px !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    border: 1px solid #ffd000 !important;
+    border-radius: 10px !important;
+    background: #ffd000 !important;
+    color: #09243d !important;
+    font: 800 .68rem/1 var(--font-mono, ui-monospace, monospace) !important;
+    letter-spacing: .09em !important;
+    text-transform: uppercase !important;
+    box-shadow: 0 10px 24px rgba(0,0,0,.14) !important;
+  }
+
+  .mobile-hero-actions .mobile-hero-secondary { display: none !important; }
+  .mobile-scroll-cue { display: none !important; }
+
+  /* ---------- bottom navigation ---------- */
+  .hero-command-dock {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: calc(var(--m2-nav-h) + var(--m2-safe)) !important;
+    min-height: calc(var(--m2-nav-h) + var(--m2-safe)) !important;
+    max-height: calc(var(--m2-nav-h) + var(--m2-safe)) !important;
+    padding: 0 0 var(--m2-safe) !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(11,41,71,.10) !important;
+    border-radius: 18px 18px 0 0 !important;
+    background: rgba(255,255,255,.97) !important;
+    box-shadow: 0 -8px 28px rgba(7,31,55,.14) !important;
+    backdrop-filter: blur(18px) saturate(125%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(125%) !important;
+    z-index: 1600 !important;
+    overflow: hidden !important;
+  }
+
+  .hero-command-dock::before { display: none !important; }
+  .hero-command-label { display: none !important; }
+
+  .hero-command-actions {
+    width: 100% !important;
+    height: var(--m2-nav-h) !important;
+    min-height: var(--m2-nav-h) !important;
+    max-height: var(--m2-nav-h) !important;
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    align-items: stretch !important;
+  }
+
+  .hero-command-item,
+  .hero-command-item:hover,
+  .hero-command-item:focus-visible,
+  .hero-command-item.is-primary,
+  .hero-command-item.is-current {
+    position: relative !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: var(--m2-nav-h) !important;
+    min-height: var(--m2-nav-h) !important;
+    max-height: var(--m2-nav-h) !important;
+    margin: 0 !important;
+    padding: 7px 2px 5px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 3px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: #0b2947 !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+  }
+
+  .hero-command-item::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    width: 0 !important;
+    height: 3px !important;
+    transform: translateX(-50%) !important;
+    background: #ffd000 !important;
+    border-radius: 0 0 4px 4px !important;
+    transition: width .18s ease !important;
+  }
+
+  .hero-command-item.is-current::before { width: 28px !important; }
+
+  .hero-command-item > span:not(.mobile-nav-icon) {
+    order: 2 !important;
+    display: none !important;
+  }
+
+  .hero-command-item .mobile-nav-icon {
+    order: 1 !important;
+    display: block !important;
+    width: 21px !important;
+    height: 21px !important;
+    flex: 0 0 21px !important;
+    margin: 0 !important;
+    color: #0b2947 !important;
+    stroke: currentColor !important;
+    fill: none !important;
+    stroke-width: 1.6 !important;
+  }
+
+  .hero-command-item .mobile-nav-icon svg,
+  .hero-command-item .mobile-nav-icon path,
+  .hero-command-item .mobile-nav-icon circle { color: inherit !important; }
+
+  .hero-command-item strong {
+    order: 2 !important;
+    display: block !important;
+    margin: 0 !important;
+    color: #0b2947 !important;
+    font: 800 .52rem/1.05 var(--font-mono, ui-monospace, monospace) !important;
+    letter-spacing: .055em !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    text-overflow: clip !important;
+    overflow: visible !important;
+  }
+
+  .hero-command-item em { display: none !important; }
+
+  .hero-command-item.is-current strong,
+  .hero-command-item.is-current .mobile-nav-icon { color: #0b2947 !important; }
+
+  /* ---------- fixed floating Project Assist ---------- */
+  .project-assist-float {
+    bottom: calc(var(--m2-nav-h) + var(--m2-safe) + 10px) !important;
+    width: min(220px, calc(100vw - 40px)) !important;
+    max-width: calc(100vw - 40px) !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    border-radius: 9px !important;
+  }
+
+  /* ---------- content reserve for fixed navigation ---------- */
+  body {
+    padding-bottom: 0 !important;
+  }
+
+  .section,
+  .legacy-scroll-section {
+    scroll-margin-top: 18px !important;
+  }
+
+  /* Never let the fixed dock cover the final interactive content. */
+  .section:last-of-type,
+  footer {
+    padding-bottom: calc(90px + var(--m2-safe)) !important;
+  }
+}
+
+@media (max-width: 359px) {
+  :root { --m2-side: 16px; --m2-nav-h: 70px; }
+  .hero-title { font-size: clamp(1.88rem, 9.8vw, 2.45rem) !important; }
+  .hero-support { font-size: .84rem !important; }
+  .hero-command-item strong { font-size: .46rem !important; letter-spacing: .035em !important; }
+  .hero-command-item .mobile-nav-icon { width: 19px !important; height: 19px !important; flex-basis: 19px !important; }
+}
+
+@media (min-width: 701px) {
+  /* Explicitly no-op on desktop. */
+}
+
+/* O&M SERVICES UPDATE — mobile only */
+@media (max-width: 700px) {
+  .ix-om-list {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 24px !important;
+    border-top: 0 !important;
+  }
+
+  .ix-om-card.om-item {
+    border: 1px solid var(--ix-line);
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .ix-om-card-trigger {
+    width: 100%;
+    display: block;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--ix-navy);
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .ix-om-card-media {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: clamp(180px, 48vw, 230px);
+    overflow: hidden;
+    background: #102c47;
+  }
+
+  .ix-om-card-media img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .ix-om-card-media i {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(5,19,32,.04), rgba(5,19,32,.48));
+    pointer-events: none;
+  }
+
+  .ix-om-card-media b {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    color: #fff;
+    font: 800 .52rem/1 var(--font-mono);
+    letter-spacing: .12em;
+  }
+
+  .ix-om-card-copy {
+    display: block;
+    padding: 17px 17px 18px;
+  }
+
+  .ix-om-card-copy strong {
+    display: block;
+    font-size: 1.02rem;
+    line-height: 1.16;
+    letter-spacing: -.015em;
+  }
+
+  .ix-om-card-copy small {
+    display: block;
+    margin-top: 10px;
+    color: var(--ix-steel);
+    font-size: .84rem;
+    line-height: 1.56;
+  }
+
+  .ix-om-card-copy em {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 14px;
+    color: var(--ix-blue);
+    font: 800 .51rem/1 var(--font-mono);
+    letter-spacing: .12em;
+    font-style: normal;
+  }
+
+  .ix-om-card-trigger:focus-visible {
+    outline: 2px solid var(--ix-blue);
+    outline-offset: -2px;
+  }
+
+  .ix-om-card-trigger:active .ix-om-card-media img { transform: scale(1.02); }
+
+  .ix-om .ix-cycle { margin-top: 26px; }
+
+  .ix-om .ix-om-hero { gap: 24px; }
+
+  .ix-om .ix-om-media,
+  .ix-om .ix-om-media video { min-height: 42svh; }
+
+  .ix-om .ix-stats { gap: 9px 16px; }
+}
+
+@media (max-width: 390px) {
+  .ix-om-card-media { height: 190px; }
+  .ix-om-card-copy { padding: 15px 15px 16px; }
+  .ix-om-card-copy strong { font-size: .98rem; }
+  .ix-om-card-copy small { font-size: .80rem; }
+}
+
+/* Team names + touch-safe panel back navigation */
+@media (max-width: 700px) {
+  .panel-header { gap: 8px !important; }
+  .panel-back {
+    min-width: 76px !important;
+    min-height: 44px !important;
+    font-size: .54rem !important;
+    letter-spacing: .11em !important;
+  }
+  .team-roster-copy strong {
+    display: block;
+    font-size: .72rem;
+    line-height: 1.1;
+  }
+  .team-roster-copy small {
+    display: block;
+    margin-top: 4px;
+    font-size: .52rem;
+    line-height: 1.2;
+  }
+  #teamFeatureName {
+    font-size: clamp(1.8rem, 8.8vw, 2.7rem) !important;
+    line-height: .98 !important;
+  }
+  #teamFeatureRole {
+    font-size: .72rem !important;
+    letter-spacing: .12em !important;
+  }
+}
+
+/* ============================================================
+   PROJECT GALLERY — MOBILE LIGHTBOX FIX
+   Stable phone viewport: image, controls and thumbnail rail
+   remain visible without changing the project-card design.
+   ============================================================ */
+@media (max-width: 700px) {
+  /* Preserve the native [hidden] state so the lightbox never appears on page load. */
+  .lightbox[hidden] { display: none !important; visibility: hidden !important; pointer-events: none !important; }
+
+  .lightbox {
+    position: fixed !important;
+    inset: 0 !important;
+    display: grid !important;
+    grid-template-rows: auto minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    justify-items: center !important;
+    gap: 8px !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    min-height: 100svh !important;
+    box-sizing: border-box !important;
+    padding: max(12px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom)) !important;
+    overflow: hidden !important;
+  }
+
+  .lightbox-head {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    min-width: 0 !important;
+    padding: 2px 48px 2px 4px !important;
+  }
+
+  .lightbox-head > div:first-child {
+    min-width: 0 !important;
+  }
+
+  .lightbox-head h2 {
+    margin: 2px 0 0 !important;
+    font-size: clamp(1.15rem, 6vw, 1.65rem) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .lightbox-head-actions {
+    flex: 0 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .lightbox-back {
+    min-height: 38px !important;
+    padding: 8px 9px !important;
+    white-space: nowrap !important;
+  }
+
+  #lightboxCount {
+    white-space: nowrap !important;
+  }
+
+  .lightbox-figure {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    gap: 7px !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+  }
+
+  .lightbox-figure img {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: calc(100vw - 58px) !important;
+    max-height: calc(100dvh - 210px) !important;
+    object-fit: contain !important;
+    flex: 0 1 auto !important;
+  }
+
+  .lightbox-figure figcaption {
+    width: min(100%, 360px) !important;
+    max-height: 44px !important;
+    overflow: hidden !important;
+    line-height: 1.25 !important;
+    gap: 6px !important;
+    padding: 0 34px !important;
+    box-sizing: border-box !important;
+  }
+
+  .lightbox-thumbs {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    gap: 7px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 3px 4px max(4px, env(safe-area-inset-bottom)) !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-x !important;
+  }
+
+  .lightbox-thumbs::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .lightbox-thumb {
+    flex: 0 0 58px !important;
+    width: 58px !important;
+    height: 42px !important;
+  }
+
+  /* Project gallery cards must remain directly tappable on iOS/Android. */
+  .panel-shell[data-panel="projects"] .g-item,
+  .panel-shell[data-panel="projects"] .gallery-project-card {
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer !important;
+  }
+
+  .lightbox-figure,
+  .lightbox-figure img,
+  .lightbox-thumbs,
+  .lightbox-nav,
+  .lightbox-close {
+    pointer-events: auto !important;
+  }
+
+  .lightbox-nav {
+    z-index: 8 !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    top: 50% !important;
+    margin-top: -10px !important;
+  }
+
+  .lightbox-prev { left: 6px !important; }
+  .lightbox-next { right: 6px !important; }
+
+  .lightbox-close {
+    z-index: 10 !important;
+    top: max(10px, env(safe-area-inset-top)) !important;
+    right: 10px !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+  }
+}

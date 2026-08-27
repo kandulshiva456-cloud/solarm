@@ -1,0 +1,792 @@
+/* ============================================================
+   MAITRA — PROJECTS PANEL / MOBILE V5
+   Scope: mobile Projects option only.
+   Desktop Projects and every other website surface are untouched.
+   ============================================================ */
+
+@media (max-width: 700px) {
+  /* The landing-page Projects section remains out of the mobile flow;
+     the Projects option is opened as the dedicated experience panel. */
+  #projects {
+    display: none !important;
+  }
+
+  /* Never hide the Projects command. The panel itself is the mobile
+     destination for this option. */
+  button[data-open="projects"],
+  a[data-open="projects"] {
+    display: revert !important;
+  }
+
+  .panel-shell[data-panel="projects"] {
+    display: grid !important;
+    padding: 0 !important;
+    background: #0b2034 !important;
+  }
+
+  .panel-shell[data-panel="projects"] .panel-backdrop {
+    background:
+      radial-gradient(circle at 15% 8%, rgba(22,119,210,.22), transparent 32%),
+      radial-gradient(circle at 88% 86%, rgba(255,196,0,.10), transparent 28%),
+      rgba(7,23,38,.93) !important;
+    backdrop-filter: blur(18px) saturate(115%);
+    -webkit-backdrop-filter: blur(18px) saturate(115%);
+  }
+
+  .panel-shell[data-panel="projects"] .panel {
+    width: 100% !important;
+    height: 100dvh !important;
+    max-height: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #f4f7fa !important;
+    box-shadow: none !important;
+  }
+
+  /* ----------------------------------------------------------
+     PANEL HEADER — compact command bar
+     ---------------------------------------------------------- */
+  .panel-shell[data-panel="projects"] .panel-header {
+    position: relative !important;
+    z-index: 10 !important;
+    min-height: 72px !important;
+    height: auto !important;
+    padding:
+      max(10px, env(safe-area-inset-top))
+      14px
+      10px 12px !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: rgba(255,255,255,.96) !important;
+    border-bottom: 1px solid rgba(16,42,67,.12) !important;
+  }
+
+  .panel-shell[data-panel="projects"] .panel-back {
+    min-width: 46px !important;
+    width: 46px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 !important;
+    border: 1px solid rgba(16,42,67,.13) !important;
+    border-radius: 12px !important;
+    background: #f4f7fa !important;
+    color: #102a43 !important;
+    font-size: 0 !important;
+  }
+
+  .panel-shell[data-panel="projects"] .panel-back::before {
+    content: "←" !important;
+    display: block !important;
+    font: 700 1.15rem/1 var(--font-sans) !important;
+  }
+
+  .panel-shell[data-panel="projects"] .panel-heading {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    padding-left: 2px !important;
+  }
+
+  .panel-shell[data-panel="projects"] .panel-heading .eyebrow {
+    margin: 0 0 3px !important;
+    color: #ae7000 !important;
+    font: 800 .47rem/1.1 var(--font-mono) !important;
+    letter-spacing: .15em !important;
+    white-space: nowrap !important;
+  }
+
+  .panel-shell[data-panel="projects"] .panel-title {
+    font-size: 1.12rem !important;
+    line-height: 1 !important;
+    letter-spacing: -.035em !important;
+  }
+
+  .panel-shell[data-panel="projects"] .panel-close {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    border-radius: 12px !important;
+    border-color: rgba(16,42,67,.13) !important;
+    background: #102a43 !important;
+    color: #fff !important;
+  }
+
+  .panel-shell[data-panel="projects"] .panel-close .icon {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  /* ----------------------------------------------------------
+     SCROLL CANVAS
+     ---------------------------------------------------------- */
+  .panel-shell[data-panel="projects"] .panel-body {
+    background:
+      linear-gradient(rgba(16,42,67,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(16,42,67,.035) 1px, transparent 1px),
+      #f4f7fa !important;
+    background-size: 28px 28px !important;
+    scrollbar-width: none !important;
+  }
+
+  .panel-shell[data-panel="projects"] .panel-body::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .panel-shell[data-panel="projects"] .ix-projects {
+    width: 100% !important;
+    max-width: 620px !important;
+    margin: 0 auto !important;
+    padding:
+      20px
+      16px
+      max(48px, calc(48px + env(safe-area-inset-bottom))) !important;
+  }
+
+  /* ----------------------------------------------------------
+     HERO / INTRO
+     ---------------------------------------------------------- */
+  .panel-shell[data-panel="projects"] .ix-project-intro {
+    position: relative !important;
+    display: block !important;
+    padding: 8px 0 26px !important;
+    border: 0 !important;
+  }
+
+  .panel-shell[data-panel="projects"] .ix-project-intro::before {
+    content: "03" !important;
+    position: absolute !important;
+    top: -7px !important;
+    right: 0 !important;
+    color: rgba(16,42,67,.055) !important;
+    font: 900 6.5rem/.8 var(--font-mono) !important;
+    letter-spacing: -.12em !important;
+    pointer-events: none !important;
+  }
+
+  .panel-shell[data-panel="projects"] .ix-project-intro .ix-kicker {
+    position: relative !important;
+    margin: 0 0 13px !important;
+    color: #a66d00 !important;
+    font: 800 .50rem/1.1 var(--font-mono) !important;
+    letter-spacing: .18em !important;
+  }
+
+  .panel-shell[data-panel="projects"] .ix-project-intro h3 {
+    position: relative !important;
+    max-width: 8.5ch !important;
+    margin: 0 !important;
+    color: #102a43 !important;
+    font-size: clamp(3.05rem, 15vw, 4.7rem) !important;
+    line-height: .83 !important;
+    letter-spacing: -.07em !important;
+    font-weight: 900 !important;
+  }
+
+  .panel-shell[data-panel="projects"] .ix-project-intro h3 span {
+    color: #1677d2 !important;
+  }
+
+  .panel-shell[data-panel="projects"] .ix-project-intro > p {
+    position: relative !important;
+    margin: 18px 0 0 !important;
+    max-width: 39rem !important;
+    color: #536d84 !important;
+    font-size: .86rem !important;
+    line-height: 1.62 !important;
+  }
+
+  /* ----------------------------------------------------------
+     PORTFOLIO INDEX
+     ---------------------------------------------------------- */
+  .panel-shell[data-panel="projects"] .ix-project-mobile-summary {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    align-items: center !important;
+    min-height: 76px !important;
+    margin: 0 0 18px !important;
+    padding: 12px 14px !important;
+    border: 1px solid rgba(16,42,67,.12) !important;
+    border-radius: 16px !important;
+    background: #102a43 !important;
+    overflow: hidden !important;
+  }
+
+  .panel-shell[data-panel="projects"] .ix-project-mobile-summary::after {
+    content: "" !important;
+    position: absolute !important;
+    right: -22px !important;
+    bottom: -42px !important;
+    width: 116px !important;
+    height: 116px !important;
+    border: 1px solid rgba(255,196,0,.26) !important;
+    border-radius: 50% !important;
+  }
+
+  .panel-shell[data-panel="projects"] .ix-project-mobile-summary > div {
+    display: grid !important;
+    gap: 4px !important;
+  }
+
+  .panel-shell[data-panel="projects"] .ix-project-mobile-summary > div:last-child {
+    justify-items: end !important;
+  }
+
+  .panel-shell[data-panel="projects"] .ix-project-mobile-summary span,
+  .panel-shell[data-panel="projects"] .ix-project-mobile-summary small {
+    color: rgba(255,255,255,.58) !important;
+    font: 800 .46rem/1.2 var(--font-mono) !important;
+    letter-spacing: .14em !important;
+  }
+
+  .panel-shell[data-panel="projects"] .ix-project-mobile-summary strong {
+    color: #ffc400 !important;
+    font: 900 1.72rem/.9 var(--font-mono) !important;
+    letter-spacing: -.06em !important;
+  }
+
+  .panel-shell[data-panel="projects"] .ix-project-meta {
+    display: none !important;
+  }
+
+  /* ----------------------------------------------------------
+     FILTER BAR — sticky, tactile, compact
+     ---------------------------------------------------------- */
+  .panel-shell[data-panel="projects"] .ix-project-tools {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 6 !important;
+    margin: 0 -16px 20px !important;
+    padding: 9px 16px !important;
+    background: rgba(244,247,250,.91) !important;
+    border-top: 1px solid rgba(16,42,67,.08) !important;
+    border-bottom: 1px solid rgba(16,42,67,.12) !important;
+    backdrop-filter: blur(12px) saturate(120%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(120%) !important;
+  }
+
+  .panel-shell[data-panel="projects"] .gallery-filters {
+    display: flex !important;
+    width: max-content !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 7px !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-snap-type: x proximity !important;
+    touch-action: pan-x !important;
+  }
+
+  .panel-shell[data-panel="projects"] .gallery-filters::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .panel-shell[data-panel="projects"] .filter-btn {
+    flex: 0 0 auto !important;
+    min-height: 36px !important;
+    padding: 0 13px !important;
+    border: 1px solid rgba(16,42,67,.13) !important;
+    border-radius: 10px !important;
+    background: rgba(255,255,255,.92) !important;
+    color: #31516d !important;
+    box-shadow: 0 2px 8px rgba(16,42,67,.035) !important;
+    font: 800 .48rem/1 var(--font-mono) !important;
+    letter-spacing: .10em !important;
+    text-transform: uppercase !important;
+    scroll-snap-align: start !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  .panel-shell[data-panel="projects"] .filter-btn:active {
+    transform: scale(.98) !important;
+  }
+
+  .panel-shell[data-panel="projects"] .filter-btn.is-active {
+    border-color: #ffc400 !important;
+    background: #ffc400 !important;
+    color: #102a43 !important;
+    box-shadow: 0 5px 14px rgba(255,196,0,.22) !important;
+  }
+
+  /* ----------------------------------------------------------
+     COLLECTION LIST
+     ---------------------------------------------------------- */
+  .panel-shell[data-panel="projects"] .ix-project-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    margin: 0 !important;
+  }
+
+  .panel-shell[data-panel="projects"] .ix-project-grid .g-item,
+  .panel-shell[data-panel="projects"] .ix-project-grid .g-item.wide,
+  .panel-shell[data-panel="projects"] .ix-project-grid .g-item.tall {
+    position: relative !important;
+    display: grid !important;
+    grid-template-rows: auto 1fr !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(16,42,67,.13) !important;
+    border-radius: 20px !important;
+    background: #fff !important;
+    color: #102a43 !important;
+    text-align: left !important;
+    box-shadow: 0 12px 32px rgba(16,42,67,.075) !important;
+    isolation: isolate !important;
+    transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease !important;
+  }
+
+  .panel-shell[data-panel="projects"] .ix-project-grid .g-item::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 4px !important;
+    height: 100% !important;
+    background: #ffc400 !important;
+    transform: scaleY(0) !important;
+    transform-origin: top !important;
+    transition: transform .24s ease !important;
+    z-index: 4 !important;
+  }
+
+  .panel-shell[data-panel="projects"] .ix-project-grid .g-item:active {
+    transform: translateY(1px) scale(.995) !important;
+  }
+
+  .panel-shell[data-panel="projects"] .ix-project-grid .g-item:focus-visible {
+    outline: 3px solid rgba(255,196,0,.72) !important;
+    outline-offset: 3px !important;
+  }
+
+  .panel-shell[data-panel="projects"] .ix-project-grid .g-item > img {
+    display: block !important;
+    width: 100% !important;
+    height: clamp(210px, 57vw, 300px) !important;
+    min-height: 0 !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    opacity: 1 !important;
+    transform: scale(1.001) !important;
+    transition: transform .5s ease !important;
+  }
+
+  .panel-shell[data-panel="projects"] .g-item .g-tag,
+  .panel-shell[data-panel="projects"] .g-item .g-project-overlay {
+    display: none !important;
+  }
+
+  .panel-shell[data-panel="projects"] .g-project-mobile-meta {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) auto !important;
+    grid-template-areas:
+      "index label arrow"
+      "title title title"
+      "count count count" !important;
+    gap: 10px !important;
+    min-height: 150px !important;
+    padding: 16px 16px 18px !important;
+    background: #fff !important;
+    text-align: left !important;
+  }
+
+  .panel-shell[data-panel="projects"] .g-project-mobile-count {
+    grid-area: count !important;
+    justify-self: start !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    margin-top: -4px !important;
+    padding: 3px 9px !important;
+    border: 1px solid rgba(16,42,67,.13) !important;
+    border-radius: 999px !important;
+    background: #f4f7fa !important;
+    color: #31516d !important;
+    font: 800 .5rem/1.2 var(--font-mono) !important;
+    letter-spacing: .06em !important;
+    text-transform: uppercase !important;
+  }
+
+  .panel-shell[data-panel="projects"] .g-project-mobile-index {
+    grid-area: index !important;
+    align-self: center !important;
+    color: #a66d00 !important;
+    font: 900 .52rem/1 var(--font-mono) !important;
+    letter-spacing: .14em !important;
+  }
+
+  .panel-shell[data-panel="projects"] .g-project-mobile-label {
+    grid-area: label !important;
+    align-self: center !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    color: #1677d2 !important;
+    font: 900 .52rem/1.2 var(--font-mono) !important;
+    letter-spacing: .12em !important;
+    text-transform: uppercase !important;
+  }
+
+  .panel-shell[data-panel="projects"] .g-project-mobile-arrow {
+    grid-area: arrow !important;
+    display: grid !important;
+    place-items: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    border: 1px solid rgba(16,42,67,.13) !important;
+    border-radius: 10px !important;
+    color: #102a43 !important;
+    font: 800 .88rem/1 var(--font-sans) !important;
+  }
+
+  .panel-shell[data-panel="projects"] .g-project-mobile-meta strong {
+    grid-area: title !important;
+    display: block !important;
+    max-width: 36rem !important;
+    color: #102a43 !important;
+    font: 750 1rem/1.34 var(--font-sans) !important;
+    letter-spacing: -.018em !important;
+  }
+
+  /* Hide filtered cards without collapsing the card layout. */
+  .panel-shell[data-panel="projects"] .ix-project-grid .g-item[hidden] {
+    display: none !important;
+  }
+
+  /* Broken-image fallback — keeps the card/viewer intact instead of a
+     broken-image icon; browsing continues normally. */
+  .panel-shell[data-panel="projects"] .ix-project-grid .g-item.img-load-error > img {
+    opacity: 0 !important;
+  }
+
+  .panel-shell[data-panel="projects"] .ix-project-grid .g-item.img-load-error::before {
+    content: "Image unavailable" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    display: grid !important;
+    place-items: center !important;
+    z-index: 3 !important;
+    background: #102a43 !important;
+    color: rgba(255,255,255,.6) !important;
+    font: 800 .55rem/1 var(--font-mono) !important;
+    letter-spacing: .1em !important;
+    text-transform: uppercase !important;
+  }
+
+  /* ----------------------------------------------------------
+     PROJECT LIGHTBOX — mobile-native full-screen viewer
+     Only activates for .is-project-gallery, so services/O&M retain
+     their existing viewer treatment.
+     ---------------------------------------------------------- */
+  .lightbox.is-project-gallery {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 1200 !important;
+    display: grid !important;
+    grid-template-rows: auto minmax(0, 1fr) auto !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    min-height: 100svh !important;
+    box-sizing: border-box !important;
+    padding:
+      max(10px, env(safe-area-inset-top))
+      10px
+      max(8px, env(safe-area-inset-bottom)) !important;
+    overflow: hidden !important;
+    background:
+      radial-gradient(circle at 50% -10%, rgba(22,119,210,.25), transparent 40%),
+      #081c2d !important;
+    color: #fff !important;
+  }
+
+  .lightbox.is-project-gallery[hidden] {
+    display: none !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-head {
+    position: relative !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 4px 48px 5px 4px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-kicker {
+    margin: 0 0 4px !important;
+    color: #ffc400 !important;
+    font: 800 .47rem/1 var(--font-mono) !important;
+    letter-spacing: .16em !important;
+    text-transform: uppercase !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-head h2 {
+    max-width: 58vw !important;
+    margin: 0 !important;
+    color: #fff !important;
+    font-size: clamp(1.08rem, 5.8vw, 1.48rem) !important;
+    line-height: 1 !important;
+    letter-spacing: -.035em !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-head-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    flex: 0 0 auto !important;
+  }
+
+  .lightbox.is-project-gallery #lightboxCount {
+    display: inline-flex !important;
+    align-items: center !important;
+    min-height: 32px !important;
+    padding: 0 9px !important;
+    border: 1px solid rgba(255,255,255,.15) !important;
+    border-radius: 999px !important;
+    color: rgba(255,255,255,.66) !important;
+    font: 800 .47rem/1 var(--font-mono) !important;
+    letter-spacing: .08em !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-back {
+    display: none !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-close {
+    position: absolute !important;
+    top: max(10px, env(safe-area-inset-top)) !important;
+    right: 10px !important;
+    z-index: 12 !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    border: 1px solid rgba(255,255,255,.18) !important;
+    border-radius: 12px !important;
+    background: rgba(255,255,255,.08) !important;
+    color: #fff !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-figure {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    display: grid !important;
+    grid-template-rows: minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    justify-items: center !important;
+    gap: 9px !important;
+    overflow: hidden !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-figure img {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: calc(100vw - 58px) !important;
+    max-height: calc(100dvh - 185px) !important;
+    object-fit: contain !important;
+    opacity: 1 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 18px 60px rgba(0,0,0,.32) !important;
+    background: #102a43 !important;
+    touch-action: pan-y !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-figure figcaption {
+    width: min(100%, 390px) !important;
+    max-height: 70px !important;
+    overflow: hidden !important;
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    gap: 8px !important;
+    padding: 0 44px !important;
+    color: rgba(255,255,255,.84) !important;
+    font-size: .74rem !important;
+    line-height: 1.35 !important;
+    box-sizing: border-box !important;
+    text-align: left !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-figure figcaption #lightboxCounter {
+    color: #ffc400 !important;
+    font: 800 .48rem/1.4 var(--font-mono) !important;
+    letter-spacing: .08em !important;
+    white-space: nowrap !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-nav {
+    position: absolute !important;
+    top: 50% !important;
+    z-index: 10 !important;
+    display: grid !important;
+    place-items: center !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    margin-top: -21px !important;
+    border: 1px solid rgba(255,255,255,.17) !important;
+    border-radius: 12px !important;
+    background: rgba(255,255,255,.08) !important;
+    color: #fff !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-prev { left: 6px !important; }
+  .lightbox.is-project-gallery .lightbox-next { right: 6px !important; }
+
+  .lightbox.is-project-gallery .lightbox-nav .icon {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-thumbs {
+    position: static !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    gap: 7px !important;
+    padding: 5px 4px 2px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-x !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-thumbs::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-thumb {
+    position: relative !important;
+    flex: 0 0 56px !important;
+    width: 56px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    border: 1px solid rgba(255,255,255,.12) !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    background: #102a43 !important;
+    opacity: .58 !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-thumb.is-active {
+    border: 2px solid #ffc400 !important;
+    opacity: 1 !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-thumb img {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    object-fit: cover !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-thumb.img-load-error img {
+    opacity: 0 !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-thumb.img-load-error::after {
+    content: "×" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    display: grid !important;
+    place-items: center !important;
+    color: rgba(255,255,255,.5) !important;
+    font: 700 .85rem/1 var(--font-sans) !important;
+  }
+
+  /* Broken full-size image — keep the viewer usable, allow continued
+     browsing via Prev/Next/swipe instead of a broken-image icon. */
+  .lightbox.is-project-gallery .lightbox-figure.img-load-error img {
+    opacity: 0 !important;
+  }
+
+  .lightbox.is-project-gallery .lightbox-figure.img-load-error::before {
+    content: "Image unavailable" !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 2 !important;
+    color: rgba(255,255,255,.55) !important;
+    font: 800 .6rem/1 var(--font-mono) !important;
+    letter-spacing: .1em !important;
+    text-transform: uppercase !important;
+  }
+
+  /* ----------------------------------------------------------
+     NARROW PHONES
+     ---------------------------------------------------------- */
+  @media (max-width: 380px) {
+    .panel-shell[data-panel="projects"] .ix-projects {
+      padding-left: 13px !important;
+      padding-right: 13px !important;
+    }
+
+    .panel-shell[data-panel="projects"] .ix-project-tools {
+      margin-left: -13px !important;
+      margin-right: -13px !important;
+      padding-left: 13px !important;
+      padding-right: 13px !important;
+    }
+
+    .panel-shell[data-panel="projects"] .ix-project-grid {
+      gap: 14px !important;
+    }
+
+    .panel-shell[data-panel="projects"] .ix-project-grid .g-item > img {
+      height: 198px !important;
+    }
+
+    .panel-shell[data-panel="projects"] .g-project-mobile-meta {
+      min-height: 142px !important;
+      padding: 14px !important;
+    }
+
+    .panel-shell[data-panel="projects"] .g-project-mobile-meta strong {
+      font-size: .94rem !important;
+    }
+
+    .lightbox.is-project-gallery .lightbox-figure img {
+      max-width: calc(100vw - 52px) !important;
+      max-height: calc(100dvh - 178px) !important;
+    }
+
+    .lightbox.is-project-gallery .lightbox-thumb {
+      flex-basis: 52px !important;
+      width: 52px !important;
+      height: 38px !important;
+    }
+  }
+
+  /* ----------------------------------------------------------
+     REDUCED MOTION
+     ---------------------------------------------------------- */
+  @media (prefers-reduced-motion: reduce) {
+    .panel-shell[data-panel="projects"] .ix-project-grid .g-item,
+    .panel-shell[data-panel="projects"] .ix-project-grid .g-item > img,
+    .panel-shell[data-panel="projects"] .ix-project-grid .g-item::after {
+      transition: none !important;
+    }
+  }
+}

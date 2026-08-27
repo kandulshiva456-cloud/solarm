@@ -1,0 +1,226 @@
+/* ============================================================
+   MAITRA MOBILE MENU V3 — STRUCTURAL OVERLAP FIX
+   The menu is a self-contained viewport. The site header does not
+   participate in the open-menu layout; its legacy close control is
+   hidden and a dedicated close button lives inside the menu header.
+   ============================================================ */
+@media (max-width: 700px) {
+  .mobile-menu {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    max-height: 100dvh !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    z-index: 9999 !important;
+    display: block !important;
+    box-sizing: border-box !important;
+    background: #F4F7FA !important;
+  }
+
+  /* The menu owns its own header/close control. */
+  .site-header.is-menu-open .nav-toggle {
+    display: none !important;
+  }
+
+  .menu-shell {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    margin: 0 !important;
+    padding: max(12px, env(safe-area-inset-top, 0px)) var(--menu-v2-side, 18px) max(12px, env(safe-area-inset-bottom, 0px)) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .menu-head {
+    flex: 0 0 auto !important;
+    min-height: 64px !important;
+    height: 64px !important;
+    padding: 0 0 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    border-bottom: 1px solid #CAD7E0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-menu-brand {
+    width: 104px !important;
+    height: 52px !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+  }
+
+  .menu-close {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+    flex: 0 0 50px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 1.5px solid #FFBD00 !important;
+    border-radius: 12px !important;
+    background: #FFFFFF !important;
+    color: #0B2A43 !important;
+    box-shadow: 0 8px 22px rgba(11,42,67,.08) !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+  }
+
+  .menu-close .icon {
+    width: 23px !important;
+    height: 23px !important;
+    display: block !important;
+  }
+
+  .menu-head-meta { display: none !important; }
+
+  /* This is the only scrollable region. Footer can never paint over it. */
+  .menu-layout {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    display: block !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+    scrollbar-width: none !important;
+    padding: 0 2px !important;
+    box-sizing: border-box !important;
+  }
+
+  .menu-layout::-webkit-scrollbar { display: none !important; }
+  .menu-preview { display: none !important; }
+  .menu-nav { min-height: 0 !important; height: auto !important; }
+
+  .menu-nav-kicker {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 5 !important;
+    margin: 0 !important;
+    padding: 13px 0 10px !important;
+    background: rgba(244,247,250,.97) !important;
+    border-bottom: 1px solid #CAD7E0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .menu-nav ul { margin: 0 !important; padding: 0 !important; }
+
+  .menu-nav li {
+    border-bottom: 1px solid #CAD7E0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .menu-nav button {
+    width: 100% !important;
+    min-height: 72px !important;
+    height: auto !important;
+    padding: 10px 0 !important;
+    display: grid !important;
+    grid-template-columns: 40px minmax(0,1fr) 26px !important;
+    gap: 9px !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+    background: transparent !important;
+  }
+
+  .menu-copy { min-width: 0 !important; gap: 4px !important; }
+  .menu-copy strong {
+    font-size: clamp(1.25rem, 6.7vw, 1.62rem) !important;
+    line-height: 1 !important;
+    letter-spacing: -.04em !important;
+  }
+  .menu-copy em {
+    max-width: 30ch !important;
+    font-size: .64rem !important;
+    line-height: 1.28 !important;
+    letter-spacing: .055em !important;
+  }
+  .menu-index { font-size: .62rem !important; padding-top: 2px !important; }
+  .menu-arrow { font-size: 1.25rem !important; justify-self: end !important; }
+
+  .menu-nav li.menu-secondary {
+    margin-top: 4px !important;
+    border-top: 1px solid #CAD7E0 !important;
+    border-bottom: 0 !important;
+  }
+
+  .menu-nav li.menu-secondary .menu-nav button,
+  .menu-nav li.menu-secondary button {
+    min-height: 62px !important;
+  }
+
+  .menu-nav li.menu-secondary .menu-copy strong { font-size: 1rem !important; }
+  .menu-nav li.menu-secondary .menu-copy em { font-size: .57rem !important; }
+
+  /* Bottom action rail is part of normal flow, never absolute/floating. */
+  .menu-foot {
+    position: static !important;
+    flex: 0 0 auto !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 7px !important;
+    margin: 0 !important;
+    padding: 9px 0 0 !important;
+    border-top: 1px solid #CAD7E0 !important;
+    background: #F4F7FA !important;
+    box-shadow: 0 -8px 18px rgba(11,42,67,.05) !important;
+    box-sizing: border-box !important;
+  }
+
+  .menu-foot-location,
+  .menu-foot-classification { display: none !important; }
+
+  .menu-foot-actions {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 7px !important;
+  }
+
+  .menu-action {
+    width: 100% !important;
+    min-height: 42px !important;
+    height: 42px !important;
+    padding: 0 10px !important;
+    border-radius: 9px !important;
+    box-sizing: border-box !important;
+    font-size: .52rem !important;
+    letter-spacing: .07em !important;
+  }
+
+  .menu-action-primary {
+    grid-column: 1 / -1 !important;
+    min-height: 48px !important;
+    height: 48px !important;
+  }
+
+  .menu-scroll-rail { display: none !important; }
+}
+
+@media (max-width: 390px) {
+  .menu-shell {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+  .menu-head { height: 60px !important; min-height: 60px !important; }
+  .mobile-menu-brand { width: 96px !important; height: 48px !important; }
+  .menu-close { width: 48px !important; height: 48px !important; min-width: 48px !important; min-height: 48px !important; flex-basis: 48px !important; }
+  .menu-nav button { min-height: 68px !important; grid-template-columns: 36px minmax(0,1fr) 24px !important; gap: 8px !important; }
+  .menu-copy strong { font-size: 1.2rem !important; }
+  .menu-copy em { font-size: .59rem !important; }
+  .menu-foot { padding-top: 7px !important; }
+  .menu-action { min-height: 40px !important; height: 40px !important; }
+  .menu-action-primary { min-height: 46px !important; height: 46px !important; }
+}

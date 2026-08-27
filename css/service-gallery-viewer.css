@@ -1,0 +1,6 @@
+/* Service imagery is a direct entry point to the shared image viewer. */
+.service-gallery-image { cursor: zoom-in; }
+.service-gallery-image:focus-visible { outline: 2px solid var(--yellow-500); outline-offset: 3px; }
+@media (hover: hover) {
+  .service-gallery-image:hover { filter: brightness(1.03); }
+}

@@ -1,0 +1,877 @@
+/* ============================================================
+   MAITRA COMMAND MENU — GLOBAL NAVIGATION EXPERIENCE
+   ============================================================ */
+:root {
+  --menu-ink: #0B2A43;
+  --menu-navy: #244862;
+  --menu-paper: #F7F9FB;
+  --menu-white: #FFFFFF;
+  --menu-amber: #FFB800;
+  --menu-blue: #1769FF;
+  --menu-cyan: #2FA8C5;
+  --menu-line: #D7E1E8;
+  --menu-muted: #70869A;
+  --menu-ease: cubic-bezier(.22,.61,.36,1);
+}
+
+.mobile-menu[hidden] { display:none !important; }
+
+.mobile-menu {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100svh !important;
+  min-height: 100svh !important;
+  max-height: none !important;
+  z-index: 205 !important;
+  box-sizing: border-box !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  display: block !important;
+  background: var(--menu-paper) !important;
+  color: var(--menu-ink) !important;
+  border: 0 !important;
+  box-shadow: 0 18px 50px rgba(11,42,67,.10) !important;
+  isolation: isolate;
+}
+
+.mobile-menu::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:
+    radial-gradient(circle at 84% 12%, rgba(23,105,255,.05), transparent 28%),
+    radial-gradient(circle at 8% 82%, rgba(47,168,197,.045), transparent 26%),
+    linear-gradient(145deg, #F7F9FB 0%, #F3F7FA 58%, #EEF4F8 100%);
+}
+
+.mobile-menu::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  opacity:.42;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(11,42,67,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11,42,67,.045) 1px, transparent 1px);
+  background-size:42px 42px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.85), transparent 94%);
+}
+
+.menu-atmosphere { position:absolute; inset:0; pointer-events:none; }
+
+.menu-shell {
+  width:min(1440px, 100%);
+  height:100%;
+  margin:0 auto;
+  padding:clamp(24px,3.2vw,48px) clamp(24px,5vw,84px) clamp(18px,2.5vw,36px);
+  box-sizing:border-box;
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr) auto;
+  gap:clamp(24px,3vw,42px);
+}
+
+.menu-head {
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:28px;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--menu-line);
+}
+
+.mobile-menu-brand {
+  display:inline-flex !important;
+  width:136px !important;
+  height:82px !important;
+  margin:0 !important;
+  align-items:center;
+  justify-content:flex-start;
+  text-decoration:none;
+  filter:drop-shadow(0 7px 16px rgba(0,0,0,.16));
+}
+
+.mobile-menu-brand img {
+  display:block;
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+  object-position:left center !important;
+}
+
+.menu-head-meta {
+  display:grid;
+  gap:7px;
+  justify-items:end;
+  padding-top:10px;
+  color:var(--menu-muted);
+  font:800 .52rem/1.2 var(--font-mono);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.menu-head-meta span:first-child { color:var(--menu-amber); }
+
+.menu-layout {
+  min-height:0;
+  display:grid;
+  grid-template-columns:minmax(0, 1.1fr) minmax(300px, .9fr);
+  gap:clamp(30px,6vw,100px);
+  align-items:stretch;
+}
+
+.menu-nav {
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+}
+
+.menu-nav-kicker {
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:4px;
+  padding-bottom:13px;
+  color:var(--menu-muted);
+  border-bottom:1px solid var(--menu-line);
+  font:800 .52rem/1.1 var(--font-mono);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.menu-nav-kicker span:first-child { color:var(--menu-ink); }
+
+.menu-nav ul {
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.menu-nav li { border-bottom:1px solid var(--menu-line); }
+
+.menu-nav button {
+  position:relative;
+  width:100%;
+  min-height:clamp(76px,10vh,118px);
+  padding:10px 0;
+  display:grid;
+  grid-template-columns:52px minmax(0,1fr) 34px;
+  gap:16px;
+  align-items:center;
+  text-align:left;
+  color:var(--menu-ink);
+  background:transparent;
+  border:0;
+  cursor:pointer;
+  transition:color .2s var(--menu-ease), padding .28s var(--menu-ease), background .28s var(--menu-ease);
+}
+
+.menu-nav button::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:16px;
+  bottom:16px;
+  width:2px;
+  background:transparent;
+  transform:scaleY(.35);
+  transform-origin:center;
+  transition:background .25s var(--menu-ease), transform .25s var(--menu-ease);
+}
+
+.menu-nav button:hover,
+.menu-nav button:focus-visible {
+  padding-inline:14px 10px;
+  background:#EEF4F8;
+  outline:none;
+}
+.menu-nav button:hover::before,
+.menu-nav button:focus-visible::before { background:var(--menu-blue); transform:scaleY(1); }
+.menu-nav button.is-current { background:rgba(255,184,0,.10); }
+.menu-nav button.is-current::before { background:var(--menu-amber); transform:scaleY(1); }
+
+.menu-index {
+  align-self:start;
+  padding-top:4px;
+  color:#70869A;
+  font:800 .57rem/1 var(--font-mono);
+  letter-spacing:.12em;
+  transition:color .2s ease;
+}
+.menu-nav button:hover .menu-index,
+.menu-nav button:focus-visible .menu-index { color:var(--menu-ink); }
+.menu-nav button.is-current .menu-index { color:var(--menu-amber); }
+
+.menu-copy { display:grid; gap:6px; min-width:0; }
+.menu-copy strong {
+  color:var(--menu-ink);
+  font-size:clamp(1.5rem,2.7vw,2.5rem);
+  line-height:.98;
+  font-weight:800;
+  letter-spacing:-.045em;
+  text-transform:uppercase;
+  transition:color .2s ease;
+}
+.menu-copy em {
+  color:#60788F;
+  font-size:.72rem;
+  line-height:1.3;
+  font-style:normal;
+  transition:color .2s ease;
+}
+.menu-nav button:hover .menu-copy strong,
+.menu-nav button:focus-visible .menu-copy strong { color:var(--menu-ink); }
+.menu-nav button:hover .menu-copy em,
+.menu-nav button:focus-visible .menu-copy em { color:#244862; }
+.menu-nav button.is-current .menu-copy strong { color:var(--menu-amber); }
+
+.menu-arrow {
+  justify-self:end;
+  color:#6B8398;
+  font-size:1.4rem;
+  transform:translateX(0);
+  transition:color .2s ease, transform .25s var(--menu-ease);
+}
+.menu-nav button:hover .menu-arrow,
+.menu-nav button:focus-visible .menu-arrow { color:var(--menu-ink); transform:translateX(7px); }
+.menu-nav button.is-current .menu-arrow { color:var(--menu-amber); }
+
+.menu-preview {
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:16px;
+}
+
+.menu-preview-frame {
+  position:relative;
+  width:100%;
+  aspect-ratio: 4 / 3;
+  overflow:hidden;
+  border:1px solid #D7E1E8;
+  background:#EAF1F5;
+}
+.menu-preview-frame img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.01);
+  filter:saturate(.86) contrast(1.02);
+  transition:opacity .28s ease, transform .7s var(--menu-ease), filter .4s ease;
+}
+.menu-preview-overlay {
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(4,18,32,.02),rgba(4,18,32,.58));
+}
+.menu-preview-meta {
+  position:absolute;
+  inset:auto 16px 14px 16px;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  color:#FFFFFF;
+  font:800 .5rem/1.2 var(--font-mono);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.menu-preview-index { color:var(--menu-amber); }
+.menu-preview-label { color:rgba(255,255,255,.82); }
+.menu-preview-note {
+  max-width:38ch;
+  margin:0;
+  color:#60788F;
+  font-size:.78rem;
+  line-height:1.65;
+}
+
+.menu-foot {
+  display:grid;
+  grid-template-columns:minmax(160px,.8fr) minmax(0,1.6fr) auto;
+  gap:28px;
+  align-items:end;
+  padding-top:16px;
+  border-top:1px solid var(--menu-line);
+}
+.menu-foot-location { display:grid; gap:5px; }
+.menu-foot-label,
+.menu-foot-classification {
+  color:#7f94a8;
+  font:800 .48rem/1.2 var(--font-mono);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.menu-foot-location strong { color:var(--menu-ink); font-size:.84rem; }
+.menu-foot-location small { color:#60788F; font-size:.7rem; }
+
+.menu-foot-actions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+.menu-action {
+  min-height:48px;
+  padding:0 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  border:1px solid #CBD8E2;
+  color:var(--menu-ink);
+  text-decoration:none;
+  background:#FFFFFF;
+  font:800 .5rem/1.1 var(--font-mono);
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  transition:background .2s ease, border-color .2s ease, color .2s ease, transform .2s var(--menu-ease);
+}
+.menu-action span { color:#60788F; text-align:right; }
+.menu-action:hover,
+.menu-action:focus-visible { border-color:var(--menu-blue); background:#EEF4F8; outline:none; transform:translateY(-1px); }
+.menu-action-primary { color:var(--menu-ink); background:var(--menu-amber); border-color:var(--menu-amber); }
+.menu-action-primary span { color:var(--menu-ink); }
+.menu-action-primary:hover,
+.menu-action-primary:focus-visible { background:#ffc328; border-color:#ffc328; }
+
+.menu-foot-classification { display:grid; gap:6px; justify-items:end; text-align:right; }
+.menu-foot-classification span:first-child { color:var(--menu-amber); }
+
+/* Close control remains in the fixed site header; make it feel like part of the command layer. */
+.site-header.is-menu-open { background:transparent !important; border-bottom:0 !important; box-shadow:none !important; }
+.site-header.is-menu-open .nav-toggle {
+  background:rgba(255,255,255,.92) !important;
+  color:var(--menu-ink) !important;
+  border-color:#CBD8E2 !important;
+  box-shadow:0 8px 30px rgba(11,42,67,.10);
+}
+.site-header.is-menu-open .nav-toggle:hover,
+.site-header.is-menu-open .nav-toggle:focus-visible {
+  border-color:var(--menu-amber) !important;
+  color:var(--menu-amber) !important;
+}
+
+/* Reduce the custom scrollbar to a fine technical line. */
+.mobile-menu::-webkit-scrollbar { width:4px; }
+.mobile-menu::-webkit-scrollbar-track { background:transparent; }
+.mobile-menu::-webkit-scrollbar-thumb { background:#B7C8D6; }
+.mobile-menu { scrollbar-width:thin; scrollbar-color:#B7C8D6 transparent; }
+
+@media (max-width:900px){
+  .menu-shell { padding-inline:26px; }
+  .menu-layout { grid-template-columns:1fr; }
+  .menu-preview { display:none; }
+  .menu-head-meta { font-size:.49rem; }
+  .menu-nav button { min-height:80px; }
+  .menu-copy strong { font-size:clamp(1.45rem,4.6vw,2.1rem); }
+  .menu-foot { grid-template-columns:1fr; gap:20px; align-items:start; }
+  .menu-foot-classification { justify-items:start; text-align:left; }
+}
+
+@media (max-width:640px){
+  .mobile-menu { overflow-y:auto !important; }
+  .menu-shell {
+    min-height:100%;
+    height:auto;
+    padding:24px 18px 20px;
+    gap:18px;
+  }
+  .menu-head { padding-bottom:12px; }
+  .mobile-menu-brand { width:110px !important; height:68px !important; }
+  .menu-head-meta { display:none; }
+  .menu-nav-kicker { margin-bottom:0; padding-bottom:9px; }
+  .menu-nav button { min-height:68px; grid-template-columns:38px minmax(0,1fr) 24px; gap:10px; padding:8px 0; }
+  .menu-nav button:hover,
+  .menu-nav button:focus-visible { padding-inline:8px 4px; }
+  .menu-nav button::before { top:11px; bottom:11px; }
+  .menu-copy strong { font-size:clamp(1.28rem,7vw,1.7rem); }
+  .menu-copy em { font-size:.66rem; }
+  .menu-arrow { font-size:1.1rem; }
+  .menu-foot-actions { grid-template-columns:1fr; }
+  .menu-action { min-height:46px; }
+}
+
+@media (max-width:390px){
+  .menu-shell { padding-inline:14px; }
+  .menu-copy em { font-size:.62rem; }
+  .menu-nav button { min-height:64px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .menu-nav button,
+  .menu-nav button::before,
+  .menu-arrow,
+  .menu-preview-frame img,
+  .menu-action,
+  .site-header.is-menu-open .nav-toggle { transition:none !important; animation:none !important; }
+}
+
+.menu-scroll-rail {
+  position:absolute;
+  top:clamp(120px,14vh,150px);
+  right:clamp(14px,2vw,28px);
+  bottom:clamp(92px,11vh,118px);
+  width:2px;
+  background:#DDE7EE;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .25s ease;
+}
+.menu-scroll-rail.is-scrollable { opacity:1; }
+.menu-scroll-rail span {
+  display:block;
+  width:100%;
+  min-height:18%;
+  background:var(--menu-amber);
+  transform-origin:top center;
+}
+@media (max-width:640px){
+  .menu-scroll-rail { right:6px; top:90px; bottom:36px; }
+}
+
+/* ============================================================
+   MENU REFINEMENT — LAYOUT / VISIBILITY FIXES
+   Keeps the approved light command-menu design while preventing
+   header overlap, footer/nav collisions, and portrait cropping.
+   ============================================================ */
+
+/* Keep the menu visually above the old header surface. The close
+   control remains the only header element above the menu. */
+.mobile-menu {
+  z-index: 205 !important;
+}
+
+.site-header.is-menu-open {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  border-bottom-color: transparent !important;
+}
+
+.site-header.is-menu-open .nav-toggle {
+  position: relative;
+  z-index: 240 !important;
+}
+
+/* Reserve space below the fixed close control so the logo can never sit
+   underneath the header on desktop/tablet. */
+.menu-shell {
+  padding-top: clamp(76px, 8vh, 96px);
+  gap: clamp(18px, 2.4vh, 28px);
+}
+
+/* The navigation must fit cleanly between the header and action rail. */
+.menu-nav button {
+  min-height: clamp(64px, 9vh, 92px);
+  grid-template-columns: 52px minmax(0,1fr) 34px;
+  padding-block: 8px;
+}
+
+.menu-copy strong {
+  font-size: clamp(1.4rem, 2.45vw, 2.2rem);
+}
+
+/* Never let the navigation paint through the footer. */
+.menu-layout {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.menu-nav {
+  min-height: 0;
+}
+
+/* Preview key lets the portrait team visual use the full source framing. */
+.menu-preview-frame[data-preview-key="team"] img {
+  object-fit: contain;
+  object-position: center;
+  background: #EAF1F5;
+  padding: 10px;
+  box-sizing: border-box;
+  filter: saturate(.9) contrast(1.01);
+}
+
+/* The square/portrait source should stay visually complete rather than
+   being clipped by the landscape preview crop. */
+.menu-preview-frame[data-preview-key="services"] img {
+  object-position: center 30%;
+}
+
+.menu-preview-frame[data-preview-key="about"] img,
+.menu-preview-frame[data-preview-key="projects"] img,
+.menu-preview-frame[data-preview-key="contact"] img {
+  object-position: center;
+}
+
+/* Keep the menu logo crisp and above decorative background layers. */
+.mobile-menu-brand {
+  position: relative;
+  z-index: 3;
+  filter: none;
+}
+
+.mobile-menu-brand img {
+  position: relative;
+  z-index: 1;
+}
+
+/* Slightly reduce footer height so it never collides with the last item. */
+.menu-foot {
+  gap: 18px;
+  padding-top: 12px;
+}
+
+.menu-foot-actions {
+  gap: 8px;
+}
+
+@media (max-width: 900px) {
+  .menu-shell {
+    padding-top: 78px;
+    gap: 18px;
+  }
+
+  .menu-nav button {
+    min-height: 68px;
+  }
+
+  .menu-layout {
+    overflow: visible;
+  }
+
+  .menu-foot {
+    padding-top: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .menu-shell {
+    min-height: 100%;
+    height: auto;
+    padding: 82px 18px 20px;
+    gap: 16px;
+  }
+
+  .mobile-menu-brand {
+    width: 112px !important;
+    height: 72px !important;
+  }
+
+  .menu-layout {
+    overflow: visible;
+  }
+
+  .menu-nav button {
+    min-height: 62px;
+  }
+
+  .menu-preview-frame[data-preview-key="team"] img {
+    padding: 0;
+  }
+}
+
+@media (max-width: 390px) {
+  .menu-shell {
+    padding-inline: 14px;
+    padding-top: 78px;
+  }
+
+  .menu-nav button {
+    min-height: 60px;
+  }
+}
+
+
+/* ============================================================
+   MOBILE MENU V2 — FULL-SCREEN COMMAND NAVIGATION
+   Scope: max-width: 700px only. Desktop remains unchanged.
+   ============================================================ */
+@media (max-width: 700px) {
+  :root {
+    --menu-v2-side: clamp(16px, 5vw, 22px);
+    --menu-v2-header: max(72px, calc(58px + env(safe-area-inset-top, 0px)));
+    --menu-v2-bottom: max(14px, env(safe-area-inset-bottom, 0px));
+  }
+
+  /* The menu owns the entire viewport. The site header only supplies the close control. */
+  .site-header.is-menu-open + .mobile-menu,
+  .mobile-menu {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    max-height: none !important;
+    z-index: 210 !important;
+    overflow: hidden !important;
+    background: #F4F7FA !important;
+  }
+
+  /* Keep the close control above the menu and move it to the same top-right
+     position occupied by the hamburger in the closed state. */
+  .site-header,
+  .site-header.is-menu-open {
+    z-index: 240 !important;
+    pointer-events: none !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .site-header .nav-toggle,
+  .site-header.is-menu-open .nav-toggle {
+    position: absolute !important;
+    top: max(12px, env(safe-area-inset-top, 0px)) !important;
+    right: var(--menu-v2-side) !important;
+    left: auto !important;
+    margin: 0 !important;
+    width: 54px !important;
+    height: 54px !important;
+    min-width: 54px !important;
+    min-height: 54px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    pointer-events: auto !important;
+    border: 2px solid #FFBD00 !important;
+    border-radius: 13px !important;
+    background: rgba(255,255,255,.94) !important;
+    color: #0B2947 !important;
+    box-shadow: 0 10px 28px rgba(7,31,55,.12) !important;
+    backdrop-filter: blur(12px) saturate(120%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(120%) !important;
+  }
+
+  .site-header .nav-toggle .icon,
+  .site-header.is-menu-open .nav-toggle .icon {
+    width: 25px !important;
+    height: 25px !important;
+    color: #0B2947 !important;
+  }
+
+  /* Full opaque surface: no hero/logo ghosting underneath. */
+  .mobile-menu::before {
+    background:
+      radial-gradient(circle at 88% 10%, rgba(23,105,255,.055), transparent 30%),
+      radial-gradient(circle at 8% 84%, rgba(47,168,197,.045), transparent 28%),
+      linear-gradient(145deg, #F8FAFC 0%, #F3F7FA 62%, #EDF3F7 100%) !important;
+  }
+
+  .mobile-menu::after {
+    opacity: .28 !important;
+    background-size: 36px 36px !important;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,.72), transparent 92%) !important;
+  }
+
+  .menu-shell {
+    width: 100% !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    padding: calc(max(12px, env(safe-area-inset-top, 0px)) + 66px) var(--menu-v2-side) var(--menu-v2-bottom) !important;
+    display: grid !important;
+    grid-template-rows: auto minmax(0, 1fr) auto !important;
+    gap: 14px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .menu-head {
+    min-height: 56px !important;
+    padding: 0 0 12px !important;
+    align-items: center !important;
+    border-bottom: 1px solid #CAD7E0 !important;
+  }
+
+  .mobile-menu-brand {
+    width: 116px !important;
+    height: 62px !important;
+    margin: 0 !important;
+    filter: none !important;
+  }
+
+  .menu-head-meta { display: none !important; }
+
+  .menu-layout {
+    min-height: 0 !important;
+    height: auto !important;
+    display: block !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+    scrollbar-width: none !important;
+    padding: 0 2px !important;
+  }
+
+  .menu-layout::-webkit-scrollbar { display: none !important; }
+  .menu-preview { display: none !important; }
+
+  .menu-nav { min-height: 0 !important; }
+
+  .menu-nav-kicker {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 4 !important;
+    margin: 0 !important;
+    padding: 11px 0 10px !important;
+    background: rgba(244,247,250,.96) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid #CAD7E0 !important;
+    font-size: .55rem !important;
+  }
+
+  .menu-nav ul { margin: 0 !important; padding: 0 !important; }
+  .menu-nav li { border-bottom: 1px solid #CAD7E0 !important; }
+
+  .menu-nav button {
+    min-height: 76px !important;
+    width: 100% !important;
+    padding: 10px 0 !important;
+    grid-template-columns: 42px minmax(0,1fr) 28px !important;
+    gap: 10px !important;
+    align-items: center !important;
+    background: transparent !important;
+    transition: background .22s ease, padding .22s ease !important;
+  }
+
+  .menu-nav button::before {
+    top: 10px !important;
+    bottom: 10px !important;
+    width: 3px !important;
+  }
+
+  .menu-nav button:hover,
+  .menu-nav button:focus-visible {
+    padding-inline: 8px 5px !important;
+    background: rgba(255,255,255,.72) !important;
+  }
+
+  .menu-nav button.is-current {
+    background: rgba(255,189,0,.08) !important;
+  }
+
+  .menu-index {
+    padding-top: 3px !important;
+    font-size: .63rem !important;
+    color: #9A7600 !important;
+  }
+
+  .menu-copy { gap: 4px !important; min-width: 0 !important; }
+
+  .menu-copy strong {
+    font-size: clamp(1.28rem, 6.8vw, 1.72rem) !important;
+    line-height: .98 !important;
+    letter-spacing: -.045em !important;
+    color: #0B2A43 !important;
+  }
+
+  .menu-copy em {
+    max-width: 28ch !important;
+    font-size: .67rem !important;
+    line-height: 1.25 !important;
+    letter-spacing: .09em !important;
+    color: #60788F !important;
+  }
+
+  .menu-arrow {
+    font-size: 1.35rem !important;
+    color: #0B2A43 !important;
+  }
+
+  /* Clients remains available but visually secondary. */
+  .menu-nav li.menu-secondary {
+    margin-top: 6px !important;
+    border-top: 1px solid #CAD7E0 !important;
+    border-bottom: 0 !important;
+  }
+
+  .menu-nav li.menu-secondary .menu-copy strong {
+    font-size: 1.02rem !important;
+    letter-spacing: -.02em !important;
+  }
+
+  .menu-nav li.menu-secondary .menu-copy em {
+    font-size: .58rem !important;
+    letter-spacing: .07em !important;
+  }
+
+  .menu-nav li.menu-secondary .menu-index {
+    color: #70869A !important;
+  }
+
+  /* Conversion rail is now a dedicated bottom row, never over the nav list. */
+  .menu-foot {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    align-items: stretch !important;
+    padding: 10px 0 0 !important;
+    border-top: 1px solid #CAD7E0 !important;
+    background: rgba(244,247,250,.98) !important;
+    box-shadow: 0 -10px 24px rgba(11,42,67,.06) !important;
+  }
+
+  .menu-foot-location,
+  .menu-foot-classification { display: none !important; }
+
+  .menu-foot-actions {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  .menu-action {
+    min-height: 46px !important;
+    padding: 0 12px !important;
+    border-radius: 10px !important;
+    font-size: .56rem !important;
+    letter-spacing: .08em !important;
+  }
+
+  .menu-action-primary {
+    grid-column: 1 / -1 !important;
+    min-height: 52px !important;
+    background: #FFBD00 !important;
+    border-color: #FFBD00 !important;
+  }
+
+  .menu-scroll-rail { display: none !important; }
+}
+
+@media (max-width: 390px) {
+  .site-header .nav-toggle,
+  .site-header.is-menu-open .nav-toggle {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+    right: 14px !important;
+  }
+
+  .menu-shell {
+    padding-inline: 14px !important;
+    padding-top: calc(max(10px, env(safe-area-inset-top, 0px)) + 62px) !important;
+    gap: 10px !important;
+  }
+
+  .mobile-menu-brand { width: 108px !important; height: 58px !important; }
+  .menu-nav button { min-height: 70px !important; }
+  .menu-copy strong { font-size: 1.23rem !important; }
+  .menu-copy em { font-size: .62rem !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-nav button,
+  .site-header .nav-toggle,
+  .menu-action { transition: none !important; }
+}
+
+
+@media (max-width: 700px) {
+  html.menu-open,
+  body.menu-open {
+    overflow: hidden !important;
+    overscroll-behavior: none !important;
+  }
+}
